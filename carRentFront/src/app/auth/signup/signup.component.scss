@@ -1,0 +1,44 @@
+
+
+.signup-container {
+    width: 400px; // Largeur du formulaire
+    margin: 50px auto; // Centrage
+    padding: 20px; // Espacement
+    background-color: #ffffff; // Fond blanc
+    border-radius: 8px; // Coins arrondis
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Ombre
+  
+    h2 {
+      text-align: center; // Centrer le titre
+      color: #001529; // Couleur du texte
+    }
+  
+    mat-form-field {
+      width: 100%; // Champs pleine largeur
+    }
+  
+    button {
+      margin-top: 20px; // Espacement en haut du bouton
+      width: 100%; // Bouton pleine largeur
+    }
+  
+    mat-error {
+      color: #f44336; // Couleur des messages d'erreur
+    }
+
+    .login-link {
+        margin-top: 20px;
+        text-align: center;
+    
+        a {
+          color: #3f51b5;
+          text-decoration: none;
+          font-weight: bold;
+        }
+    
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+  }
+  

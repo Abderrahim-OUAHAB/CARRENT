@@ -1,0 +1,63 @@
+/* Conteneur principal du formulaire */
+.post-agency-container {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+  
+  .post-agency-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+  }
+  
+  /* Formulaire d'ajout d'agence */
+  .post-agency-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Champs du formulaire */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .file-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Aperçu de l'image */
+  .image-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Bouton de soumission */
+  button[type="submit"] {
+    align-self: center;
+    width: 50%; /* Ajustement de largeur */
+    max-width: 300px;
+    font-weight: bold;
+  }
+  
+  /* Media Queries - Responsiveness */
+  @media (max-width: 768px) {
+    .post-agency-container {
+      padding: 20px;
+    }
+  
+    button[type="submit"] {
+      width: 80%; /* Plus large sur petit écran */
+    }
+  }
+  

@@ -1,0 +1,48 @@
+$primary-color: #3d4263;
+$accent-color: #212021;
+
+.navbar {
+  background: linear-gradient(135deg, $primary-color 0%, $accent-color 100%);
+  color: white;
+  font-family: 'Georgia', serif;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  button {
+    color: white;
+    text-transform: uppercase;
+    margin: 0 10px;
+
+    &:hover {
+      background-color: lighten($accent-color, 10%);
+    }
+  }
+
+  mat-icon {
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    .logo {
+      font-size: 20px;
+    }
+
+    button {
+      font-size: 14px;
+    }
+
+    mat-icon {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+<div class="post-agency-container">
+  <h2>Ajouter une Agence</h2>
+  
+  <form [formGroup]="agencyForm" (ngSubmit)="addAgency()" class="post-agency-form">
+      <mat-form-field appearance="fill">
+          <mat-label>Nom de l'agence</mat-label>
+          <input matInput formControlName="name" required />
+          <mat-error *ngIf="agencyForm.get('name')?.invalid && agencyForm.get('name')?.touched">
+              Nom requis
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+          <mat-label>Adresse</mat-label>
+          <input matInput formControlName="address" required />
+          <mat-error *ngIf="agencyForm.get('address')?.invalid && agencyForm.get('address')?.touched">
+              Adresse requise
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+          <mat-label>Ville</mat-label>
+          <input matInput formControlName="city" required />
+          <mat-error *ngIf="agencyForm.get('city')?.invalid && agencyForm.get('city')?.touched">
+              Ville requise
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+          <mat-label>Pays</mat-label>
+          <input matInput formControlName="country" required />
+          <mat-error *ngIf="agencyForm.get('country')?.invalid && agencyForm.get('country')?.touched">
+              Pays requis
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required />
+          <mat-error *ngIf="agencyForm.get('email')?.invalid && agencyForm.get('email')?.touched">
+              Email requis
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+          <mat-label>Téléphone</mat-label>
+          <input matInput formControlName="phoneNumber" required />
+          <mat-error *ngIf="agencyForm.get('phoneNumber')?.invalid && agencyForm.get('phoneNumber')?.touched">
+              Téléphone requis
+          </mat-error>
+      </mat-form-field>
+
+      <div class="file-upload">
+        <mat-label>Image de l'agence</mat-label>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+        <div *ngIf="imagePreview" class="image-preview">
+          <img [src]="imagePreview" alt="Aperçu de l'image" />
+        </div>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="agencyForm.invalid">
+          Publier l'agence
+      </button>
+  </form>
+</div>

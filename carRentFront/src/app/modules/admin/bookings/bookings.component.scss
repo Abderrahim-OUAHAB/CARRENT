@@ -1,0 +1,114 @@
+.spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    gap: 10px;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .bookings-table {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  
+    mat-header-cell {
+      font-weight: bold;
+      color: #3f51b5;
+    }
+  
+    mat-cell {
+      padding: 16px;
+    }
+  
+    .mat-header-row {
+      background-color: #e0e0e0;
+    }
+  
+    .mat-row:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+  
+    .mat-row:hover {
+      background-color: #d1c4e9;
+    }
+  
+    button {
+      margin: 0 5px;
+    }
+  }
+  .bookings-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 200px;
+  }
+  
+  .action-button {
+    margin-right: 10px;
+    width: 100px;
+  }
+  
+  .approve-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .reject-button {
+    background-color: #F44336;
+    color: white;
+  }
+  
+  /* Button hover effect */
+  .approve-button:hover {
+    background-color: #45a049;
+  }
+  
+  .reject-button:hover {
+    background-color: #e53935;
+  }
+  .actions-container {
+    display: flex; /* Utiliser flexbox pour aligner les boutons */
+    justify-content: center; /* Centrer les boutons */
+    flex-wrap: wrap; /* Permet aux boutons de se renvoyer à la ligne si nécessaire */
+    gap: 5px; /* Espacement entre les boutons */
+}
+
+.action-button {
+    min-width: 80px; /* Largeur minimale pour les boutons */
+    white-space: nowrap; /* Empêche le texte de se diviser sur plusieurs lignes */
+    overflow: hidden; /* Cache le texte qui déborde */
+    text-overflow: ellipsis; /* Affiche '...' pour le texte trop long */
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 20px; /* Espacement autour du conteneur */
+}
+
+.search-input {
+  flex: 1; /* Permet à l'input de prendre toute la largeur disponible */
+  padding: 10px;
+  border: 1px solid #ccc; /* Bordure grise */
+  border-radius: 4px; /* Coins arrondis */
+  font-size: 16px; /* Taille de police */
+}
+
+.search-input:focus {
+  outline: none; /* Retire le contour par défaut */
+  border-color: #007bff; /* Change la couleur de la bordure lors de la mise au point */
+}
+
+.search-icon {
+  margin-left: 10px; /* Espacement entre l'input et l'icône */
+  color: #000000; /* Couleur de l'icône */
+  cursor: pointer; /* Changer le curseur au survol */
+}

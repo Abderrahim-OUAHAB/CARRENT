@@ -1,0 +1,120 @@
+<div class="search-container">
+  <input 
+    type="text" 
+    placeholder="Rechercher..." 
+    (keyup)="applyFilter($event)" 
+    class="search-input" />
+  <mat-icon class="search-icon">search</mat-icon>
+</div>
+
+
+<ng-container *ngIf="isSpinning; else tableContent">
+  <div class="spinner-container">
+    <mat-progress-spinner 
+      mode="indeterminate" 
+      diameter="50" 
+      color="primary">
+    </mat-progress-spinner>
+    <span>Chargement...</span>
+  </div>
+</ng-container>
+
+<ng-template #tableContent>
+  <mat-table [dataSource]="filteredBookings" class="bookings-table mat-elevation-z8">
+
+    <!-- Date de début -->
+    <ng-container matColumnDef="fromDate">
+      <mat-header-cell *matHeaderCellDef> Début </mat-header-cell>
+      <mat-cell *matCellDef="let booking">
+        {{ booking.startDate | date: 'd MMM y' }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Nom de l'utilisateur -->
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+      <mat-cell *matCellDef="let booking"> 
+        {{ booking.userName }} 
+      </mat-cell>
+    </ng-container>
+
+    <!-- Email -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell *matCellDef="let booking"> 
+        {{ booking.email }} 
+      </mat-cell>
+    </ng-container>
+
+    <!-- Date de fin -->
+    <ng-container matColumnDef="toDate">
+      <mat-header-cell *matHeaderCellDef> Fin </mat-header-cell>
+      <mat-cell *matCellDef="let booking">
+        {{ booking.endDate | date: 'd MMM y' }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Nombre de jours -->
+    <ng-container matColumnDef="days">
+      <mat-header-cell *matHeaderCellDef> Jours </mat-header-cell>
+      <mat-cell *matCellDef="let booking"> 
+        {{ booking.days }} 
+      </mat-cell>
+    </ng-container>
+
+    <!-- Prix -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Prix </mat-header-cell>
+      <mat-cell *matCellDef="let booking"> 
+        {{ booking.price | currency:'EUR':'symbol':'1.2-2' }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Statut -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Statut </mat-header-cell>
+      <mat-cell *matCellDef="let booking">
+        <strong [ngStyle]="{
+          'color': booking.status === 'APPROVED' ? '#4CAF50' :
+                   booking.status === 'REJECTED' ? '#F44336' :
+                   booking.status === 'CANCELLED' ? '#gray' : '#FF9800'
+        }">
+          {{ booking.status === 'APPROVED' ? 'Approuvé' : 
+             booking.status === 'REJECTED' ? 'Rejeté' : 
+             booking.status === 'CANCELLED' ? 'Annulée' : 'En attente' }}
+        </strong>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let booking">
+        <div class="actions-container">
+          <ng-container *ngIf="booking.status === 'PENDING'; else noActions">
+            <button 
+              mat-raised-button 
+              color="primary" 
+              class="action-button approve-button"
+              (click)="changeBookingStatus(booking.id, 'APPROVED')">
+              Approuver
+            </button>
+            <button 
+              mat-raised-button 
+              color="warn" 
+              class="action-button reject-button"
+              (click)="changeBookingStatus(booking.id, 'REJECTED')">
+              Rejeter
+            </button>
+          </ng-container>
+          <ng-template #noActions>
+            <span style="margin-left: 0px;">-</span> <!-- Remplacez les actions par un tiret -->
+          </ng-template>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</ng-template>

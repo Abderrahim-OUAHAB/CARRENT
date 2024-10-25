@@ -1,0 +1,102 @@
+<div class="post-car-container">
+    <h2>Ajouter une Voiture</h2>
+    
+    <form [formGroup]="postCarForm" (ngSubmit)="postCar()" class="post-car-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Nom de la voiture</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="postCarForm.get('name')?.invalid && postCarForm.get('name')?.touched">
+          Nom requis
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Marque</mat-label>
+        <mat-select formControlName="brand" required>
+          <mat-option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="postCarForm.get('brand')?.invalid && postCarForm.get('brand')?.touched">
+          Marque requise
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Type de carburant</mat-label>
+        <mat-select formControlName="type" required>
+          <mat-option *ngFor="let type of listOfType" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="postCarForm.get('type')?.invalid && postCarForm.get('type')?.touched">
+          Type de carburant requis
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Couleur</mat-label>
+        <mat-select formControlName="color" required>
+          <mat-option *ngFor="let color of listOfColor" [value]="color">{{ color }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="postCarForm.get('color')?.invalid && postCarForm.get('color')?.touched">
+          Couleur requise
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Transmission</mat-label>
+        <mat-select formControlName="transmission" required>
+          <mat-option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="postCarForm.get('transmission')?.invalid && postCarForm.get('transmission')?.touched">
+          Transmission requise
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Prix</mat-label>
+        <input matInput formControlName="price" type="number" required />
+        <mat-error *ngIf="postCarForm.get('price')?.invalid && postCarForm.get('price')?.touched">
+          Prix requis
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" required></textarea>
+        <mat-error *ngIf="postCarForm.get('description')?.invalid && postCarForm.get('description')?.touched">
+          Description requise
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Année</mat-label>
+        <mat-icon matPrefix>calendar_today</mat-icon> <!-- Icône du calendrier -->
+        <input matInput [matDatepicker]="picker" formControlName="year" placeholder="Sélectionnez l'année" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="postCarForm.get('year')?.invalid && postCarForm.get('year')?.touched">
+          Année requise
+        </mat-error>
+      </mat-form-field>
+     
+      <mat-form-field appearance="fill">
+        <mat-label>Agence</mat-label>
+        <mat-select formControlName="agencyId" required>
+          <mat-option *ngFor="let agency of agencies" [value]="agency.id">
+            {{ agency.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div class="file-upload">
+        <mat-label>Image de la voiture</mat-label>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+        <div *ngIf="imagePreview" class="image-preview">
+          <img [src]="imagePreview" alt="Aperçu de l'image" />
+        </div>
+      </div>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="postCarForm.invalid">
+        Publier la voiture
+      </button>
+    </form>
+  </div>
+  

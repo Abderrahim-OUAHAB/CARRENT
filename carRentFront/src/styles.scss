@@ -1,0 +1,47 @@
+/* Assure que le HTML et le Body prennent toute la hauteur de la fenêtre */
+html, body {
+    height: 100%;              /* Prend la hauteur complète */
+    margin: 0;                 /* Supprime les marges */
+    padding: 0;                /* Supprime le padding */
+    overflow-x: hidden;        /* Empêche le défilement horizontal */
+    font-family: 'Roboto', "Helvetica Neue", sans-serif;
+    background: linear-gradient(135deg,#ffffff 00%,#3d4263 100%);
+    background-size: cover;    /* Assure que l'image couvre tout l'écran */
+    background-attachment: fixed; /* Garde le fond fixe lors du défilement */
+    background-repeat: no-repeat; /* Empêche la répétition du fond */
+    background-position: center;  /* Centre le background */
+    box-sizing: border-box;    /* Gère correctement le padding et border */
+  }
+  
+  * {
+    font-family: 'Georgia', serif; /* Thème old school */
+    box-sizing: inherit;           /* Assure une gestion cohérente du box model */
+  }
+  
+  /* Ajout d'une classe pour contenir le contenu avec un padding */
+  .container {
+    min-height: 100vh;             /* Assure que le container couvre l'écran */
+    display: flex;                 /* Utilise flexbox pour centrer le contenu */
+    flex-direction: column;
+    justify-content: center;       /* Centre verticalement */
+    align-items: center;           /* Centre horizontalement */
+    padding: 20px;
+  }
+  
+  /* Assure que les boutons et autres éléments n'affectent pas l'apparence globale */
+  button {
+    font-family: inherit;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 24px;  /* Taille de la police */
+    color: #000000;   /* Couleur de texte - bleu (ou ajustez selon votre thème) */
+    margin-bottom: 20px;  /* Espace sous le titre */
+    text-align: center;  /* Centre le texte */
+    font-weight: 600;  /* Gras */
+    text-transform: uppercase;  /* Transforme le texte en majuscules */
+    letter-spacing: 1px;  /* Espace entre les lettres */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Ligne en bas du titre */
+    padding-bottom: 10px;  /* Espace sous la ligne */
+  }
+  

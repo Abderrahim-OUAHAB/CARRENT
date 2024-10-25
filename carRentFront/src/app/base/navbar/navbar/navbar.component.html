@@ -1,0 +1,56 @@
+<mat-toolbar color="accent" class="navbar" *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
+  <span class="logo">
+    <img src="logo_sans_white.png" alt="Logo" style="height: 50px; width: 50px; margin-right: 20px;">
+    CARRENT
+  </span>
+  <span class="spacer"></span>
+
+  <button mat-button routerLink="/login">
+    <mat-icon>login</mat-icon> Connexion
+  </button>
+  <button mat-button routerLink="/register">
+    <mat-icon>person_add</mat-icon> Inscription
+  </button>
+</mat-toolbar>
+
+<mat-toolbar color="accent" class="navbar" *ngIf="isAdminLoggedIn">
+  <span class="logo">
+    <img src="logo_sans_white.png" alt="Logo" style="height: 50px; width: 50px; margin-right: 20px;">
+    {{ username }}
+  </span>
+  <span class="spacer"></span>
+
+  <button mat-button routerLink="/admin/dashboard">Voitures</button>
+  <button mat-button routerLink="/bookings">Réservations</button>
+  <button mat-button routerLink="/agences">Agences</button>
+
+  <span class="spacer"></span>
+  <button mat-icon-button routerLink="/search">
+    <mat-icon>search</mat-icon>
+  </button>
+  <button mat-button (click)="logout()">
+    <mat-icon>logout</mat-icon> Déconnexion
+  </button>
+</mat-toolbar>
+
+<mat-toolbar color="accent" class="navbar" *ngIf="isCustomerLoggedIn">
+  <span class="logo">
+    <img src="logo_sans_white.png" alt="Logo" style="height: 50px; width: 50px; margin-right: 20px;">
+    Heureux de vous revoir, {{ username }} !
+  </span>
+  <span class="spacer"></span>
+
+  <button mat-button routerLink="/customer/dashboard">Voitures</button>
+  <button mat-button routerLink="/my_bookings">Mes Réservations</button>
+
+  <span class="spacer"></span>
+  <button mat-button routerLink="/search-car">
+    <mat-icon>search</mat-icon>
+  </button>
+  <button mat-button routerLink="/edit-profile">
+    <mat-icon>person</mat-icon>
+  </button>
+  <button mat-button (click)="logout()">
+    <mat-icon>logout</mat-icon> Déconnexion
+  </button>
+</mat-toolbar>

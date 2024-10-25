@@ -1,0 +1,79 @@
+/* Conteneur principal */
+.update-agency-container {
+    padding: 40px;
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.15); /* Fond transparent avec légère opacité */
+    backdrop-filter: blur(12px); /* Effet de flou sur le fond */
+    border-radius: 15px; /* Coins arrondis */
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3); /* Ombre pour donner de la profondeur */
+    color: white;
+  }
+  
+  /* Titre du formulaire */
+  .update-agency-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: 28px;
+  }
+  
+  /* Formulaire */
+  .update-agency-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espacement vertical entre les champs */
+    align-items: center;
+  }
+  
+  /* Champs du formulaire */
+  mat-form-field {
+    width: 100%; /* Champs prennent la largeur du conteneur */
+    max-width: 700px; /* Limitation de la largeur pour un meilleur affichage */
+  }
+  
+  /* Upload de fichier */
+  .file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    gap: 10px;
+  }
+  
+  /* Prévisualisation de l'image */
+  .image-preview img {
+    max-width: 100%; /* Image prend la largeur du conteneur */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ombre douce */
+    margin-top: 10px;
+  }
+  
+  /* Bouton de soumission */
+  button[type="submit"] {
+    align-self: center;
+    width: 50%;
+    max-width: 300px;
+    font-weight: bold;
+    padding: 10px 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .update-agency-container {
+      padding: 20px;
+    }
+  
+    mat-form-field, 
+    .file-upload {
+      max-width: 100%; /* Champs et upload prennent toute la largeur sur mobile */
+    }
+  
+    button[type="submit"] {
+      width: 80%; /* Bouton plus large sur petit écran */
+    }
+  }
+  

@@ -1,0 +1,96 @@
+<ng-container *ngIf="isSpinning">
+  <div class="spinner-container">
+    <mat-progress-spinner 
+      mode="indeterminate" 
+      diameter="50" 
+      color="primary">
+    </mat-progress-spinner>
+    <span>Chargement...</span>
+  </div>
+</ng-container>
+
+<div class="mat-search-container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+    <!-- Brand Select -->
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Brand</mat-label>
+      <mat-select formControlName="brand">
+        <mat-option *ngFor="let brand of listOfBrands" [value]="brand">
+          {{ brand }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Color Select -->
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Color</mat-label>
+      <mat-select formControlName="color">
+        <mat-option *ngFor="let color of listOfColor" [value]="color">
+          {{ color }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Type Select -->
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of listOfType" [value]="type">
+          {{ type }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Transmission Select -->
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Transmission</mat-label>
+      <mat-select formControlName="transmission">
+        <mat-option *ngFor="let transmission of listOfTransmission" [value]="transmission">
+          {{ transmission }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+<!-- Disponibilité Select -->
+<mat-form-field appearance="fill" class="form-field">
+  <mat-label>Disponibilité</mat-label>
+  <mat-select formControlName="disponible">
+    <mat-option [value]="true">Disponible</mat-option>
+    <mat-option [value]="false">Indisponible</mat-option>
+  </mat-select>
+</mat-form-field>
+
+    <!-- Search Button -->
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit" style="height: 50px;">Search</button>
+    </div>
+  </form>
+
+  <!-- Car List -->
+  <div class="car-grid" *ngIf="cars && cars.length > 0">
+    <mat-card *ngFor="let car of cars" class="car-card mat-elevation-z4">
+      <div class="car-image">
+        <img [src]="car.processedImg" alt="Car Image" />
+      </div>
+      <div class="car-details">
+        <h3>{{ car.brand }}</h3>
+        <p><strong>Couleur :</strong> {{ car.color }}</p>
+        <p><strong>Type :</strong> {{ car.type }}</p>
+        <p><strong>Transmission :</strong> {{ car.transmission }}</p>
+        <p><strong>Prix :</strong> {{ car.price | currency }}</p>
+      </div>
+      <div class="actions">
+        <button mat-raised-button color="primary" routerLink="/car/{{ car.id }}">
+          Modifier
+        </button>
+        <button mat-raised-button color="warn" (click)="deleteCar(car.id)">
+          Supprimer
+        </button>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- No Results Message -->
+  <div *ngIf="cars && cars.length === 0" class="no-results">
+    <p>Aucune voiture ne correspond à votre recherche.</p>
+  </div>
+</div>

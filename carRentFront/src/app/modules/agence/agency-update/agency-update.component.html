@@ -1,0 +1,69 @@
+<div class="update-agency-container">
+    <h2>Modifier l'Agence</h2>
+  
+    <form [formGroup]="updateForm" (ngSubmit)="updateAgency()" class="update-agency-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Nom de l'agence</mat-label>
+        <input matInput formControlName="name" required />
+        <mat-error *ngIf="updateForm.get('name')?.invalid && updateForm.get('name')?.touched">
+          Nom requis.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Adresse</mat-label>
+        <input matInput formControlName="address" required />
+        <mat-error *ngIf="updateForm.get('address')?.invalid && updateForm.get('address')?.touched">
+          Adresse requise.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Ville</mat-label>
+        <input matInput formControlName="city" required />
+        <mat-error *ngIf="updateForm.get('city')?.invalid && updateForm.get('city')?.touched">
+          Ville requise.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Pays</mat-label>
+        <input matInput formControlName="country" required />
+        <mat-error *ngIf="updateForm.get('country')?.invalid && updateForm.get('country')?.touched">
+          Pays requis.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required />
+        <mat-error *ngIf="updateForm.get('email')?.invalid && updateForm.get('email')?.touched">
+          Email requis.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Téléphone</mat-label>
+        <input matInput formControlName="phoneNumber" required />
+        <mat-error *ngIf="updateForm.get('phoneNumber')?.invalid && updateForm.get('phoneNumber')?.touched">
+          Téléphone requis.
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="file-upload">
+        <mat-label>Image de l'agence</mat-label>
+        <div *ngIf="existingImg" class="image-preview">
+            <img [src]="existingImg" alt="Image actuelle" width="200" />
+          </div>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+        <div *ngIf="imagePreview" class="image-preview">
+          <img [src]="imagePreview" alt="Aperçu de l'image" />
+        </div>
+      </div>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="updateForm.invalid">
+        Modifier l'agence
+      </button>
+    </form>
+  </div>
+  

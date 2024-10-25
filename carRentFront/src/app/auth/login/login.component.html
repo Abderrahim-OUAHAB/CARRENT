@@ -1,0 +1,32 @@
+<div class="login-container">
+    <h2>Connexion</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <mat-icon matPrefix>email</mat-icon>
+        <input matInput formControlName="email" type="email" placeholder="Entrez votre email" required />
+        <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          Email requis et doit être valide
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Mot de passe</mat-label>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput formControlName="password" type="password" placeholder="Entrez votre mot de passe" required />
+        <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Mot de passe requis (minimum 6 caractères)
+        </mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+        Connexion
+      </button>
+  
+      <div class="signup-link">
+        <span>Pas encore de compte ?</span>
+        <a routerLink="/register">  Inscrivez-vous ici</a>
+      </div>
+    </form>
+  </div>
+  

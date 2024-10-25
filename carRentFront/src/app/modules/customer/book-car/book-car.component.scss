@@ -1,0 +1,53 @@
+.dashboard-container {
+  max-width: 600px;  /* Largeur maximale */
+  margin: 0 auto;  /* Centre le conteneur */
+  padding: 10px;  /* Réduit l'espacement interne */
+  font-family: Arial, sans-serif;  /* Police de caractères */
+}
+
+h1 {
+  text-align: center;  /* Centre le titre */
+  color: #1976d2;  /* Couleur du titre */
+  margin-bottom: 20px;  /* Réduit l'espace en dessous du titre */
+}
+
+.car-grid {
+  display: grid;  /* Utilise une grille CSS */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Colonnes réactives */
+  gap: 10px;  /* Réduit l'espace entre les cartes */
+}
+
+.car-card {
+  transition: transform 0.2s;  /* Animation pour le survol */
+  border-radius: 8px;  /* Coins arrondis */
+}
+
+.car-avatar {
+  width: 50px;  /* Largeur de l'avatar */
+  height: 50px;  /* Hauteur de l'avatar */
+  border-radius: 50%;  /* Forme ronde */
+}
+
+.car-image img {
+  max-width: 100%;  /* L'image ne déborde pas */
+  height: auto;  /* Hauteur automatique pour garder les proportions */
+  border-radius: 8px;  /* Coins arrondis pour les images */
+}
+
+.booking-form {
+  
+}
+
+.mat-form-field {
+  width: 100%;  /* Champs de formulaire prennent toute la largeur */
+
+}
+
+.full-width {
+  width: 100%;  /* S'assurer que les boutons et champs de formulaire prennent toute la largeur */
+}
+
+button[type="submit"] {
+  display: block;  /* Affichage en bloc pour le bouton */
+
+}
