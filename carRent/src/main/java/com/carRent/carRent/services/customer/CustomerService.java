@@ -6,6 +6,7 @@ import com.carRent.carRent.dto.BookCarDto;
 import com.carRent.carRent.dto.CarDto;
 import com.carRent.carRent.dto.CarDtoListDto;
 import com.carRent.carRent.dto.SearchCarDto;
+import com.carRent.carRent.entity.Car;
 import com.carRent.carRent.entity.User;
 
 public interface CustomerService {
@@ -22,5 +23,6 @@ public interface CustomerService {
    public boolean cancelBooking(Long bookingId,String status) ;
 
    User updateUser(Long id, User updatedUser);
+    List<Car> getAvailableCars();
 
 }

@@ -14,9 +14,11 @@ import { AgencyListComponent } from './modules/agence/agency-list/agency-list.co
 import { AgencyAddComponent } from './modules/agence/agency-add/agency-add.component';
 import { AgencyUpdateComponent } from './modules/agence/agency-update/agency-update.component';
 import { EditProfileComponent } from './modules/customer/edit-profile/edit-profile.component';
+import { BotRequestComponent } from './chatbot/bot-request/bot-request.component';
 
 
 export const routes: Routes = [
+    {path:"chatbot",component:BotRequestComponent},
     {path:"edit-profile",component:EditProfileComponent},
     {path:"update_agence/:id",component:AgencyUpdateComponent},
     {path:"add_agence",component:AgencyAddComponent},

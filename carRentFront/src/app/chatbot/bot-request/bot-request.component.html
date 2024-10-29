@@ -1,0 +1,22 @@
+<div class="chatbot-container">
+  <div class="chatbot-header">
+    <img class="chatbot-icon" src="logo_sans.png" alt="Chatbot Icon" />
+    <h2>CARBOT</h2>
+  </div>
+
+  <div class="chatbot-messages" #messagesContainer>
+    <div *ngFor="let message of messages" class="message-wrapper">
+      <div 
+        [ngClass]="{'user-message': message.type === 'user', 'bot-message': message.type === 'bot'}">
+        <span *ngIf="message.type === 'bot'" class="message-icon">🤖</span>
+        <pre>{{ message.text }}</pre>
+        <span *ngIf="message.type === 'user'" class="message-icon">👤</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chatbot-input">
+    <input [(ngModel)]="userMessage" placeholder="Tapez votre message..." />
+    <button (click)="sendMessage()">Envoyer</button>
+  </div>
+</div>

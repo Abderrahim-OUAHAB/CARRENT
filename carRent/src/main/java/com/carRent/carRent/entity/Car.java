@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
@@ -40,8 +41,9 @@ public class Car {
     private Long price;
    
     private LocalDate year;
+
    
-    private boolean disponible;
+    private boolean disponible=true;
 
     @Column(columnDefinition = "longblob")
     private byte[] image;

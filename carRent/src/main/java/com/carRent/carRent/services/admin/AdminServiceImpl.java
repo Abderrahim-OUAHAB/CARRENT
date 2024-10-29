@@ -52,6 +52,7 @@ public class AdminServiceImpl implements AdminService{
      newCar.setYear(car.getYear());
      newCar.setImage(car.getImage().getBytes());
      newCar.setAgency(agency);
+     newCar.setDisponible(true);
      carRepository.save(newCar);
      return true;
     }

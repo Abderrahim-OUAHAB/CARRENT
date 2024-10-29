@@ -140,6 +140,12 @@ public User updateUser(Long id, User updatedUser) {
     }).orElseThrow(() -> new RuntimeException("User not found"));
 }
 
+@Override
+public List<Car> getAvailableCars() {
+    return carRepository.findByDisponibleTrue();
+}
+
+
     
 
 
